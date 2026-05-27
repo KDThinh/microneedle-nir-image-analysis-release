@@ -46,10 +46,9 @@ unless overridden in the profile.
    microneedle-analysis analyze --profile <profile_id> --config config.yaml
    ```
 
-   If you do not pass `--config`, the CLI searches for `config.yaml` in this
-   order: the current working directory, the repository root (parent of the
-   `microneedle_analysis` package), then the copy bundled with the installed
-   package. When in doubt, pass `--config config.yaml` explicitly.
+   If you do not pass `--config`, the CLI searches for `config.yaml` in the
+   current working directory, then the repository root. For manuscript
+   profiles, run from the repo root or pass `--config config.yaml` explicitly.
 
    Profile IDs and field definitions are documented at the top of
    [`config.yaml`](config.yaml) (naming convention, per-profile fields, and

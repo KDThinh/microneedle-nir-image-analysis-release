@@ -582,7 +582,7 @@ def preprocess(
     suffix: Optional[str] = typer.Option(None, "--suffix", "-s", help="Suffix for output filename (default: '_background_corrected' if radius specified, '_processed' otherwise)"),
     visualize: bool = typer.Option(False, "--visualize", help="Show visualization plots"),
     profile: Optional[str] = typer.Option(None, "--profile", "-p", help="Use parameters from a profile in config.yaml (can use file_path from profile if file_path not provided)"),
-    config_path: Optional[str] = typer.Option(None, "--config", "-c", help="Path to config file (default: microneedle_analysis/config.yaml)"),
+    config_path: Optional[str] = typer.Option(None, "--config", "-c", help="Path to config file (default: ./config.yaml, then repository root)"),
 ):
     """
     Preprocess TIFF stack: load, optionally correct illumination shift, 
@@ -855,7 +855,7 @@ def list_profiles(
         None,
         "--config",
         "-c",
-        help="Path to config file (default: ./config.yaml, then project root, then package)",
+        help="Path to config file (default: ./config.yaml, then repository root)",
     ),
 ):
     """
@@ -903,7 +903,7 @@ def add_profile(
     ),
     output_dir: Optional[str] = typer.Option(None, "--output-dir", "-o", help="Output directory for this profile"),
     description: Optional[str] = typer.Option(None, "--description", "-d", help="Description of the profile"),
-    config_path: Optional[str] = typer.Option(None, "--config", "-c", help="Path to config file (default: microneedle_analysis/config.yaml)"),
+    config_path: Optional[str] = typer.Option(None, "--config", "-c", help="Path to config file (default: ./config.yaml, then repository root)"),
 ):
     """
     Add or update a profile in the config file.
@@ -969,7 +969,7 @@ def add_profile(
 @app.command()
 def remove_profile(
     profile_name: str = typer.Argument(..., help="Name of the profile to remove"),
-    config_path: Optional[str] = typer.Option(None, "--config", "-c", help="Path to config file (default: microneedle_analysis/config.yaml)"),
+    config_path: Optional[str] = typer.Option(None, "--config", "-c", help="Path to config file (default: ./config.yaml, then repository root)"),
 ):
     """
     Remove a profile from the config file.

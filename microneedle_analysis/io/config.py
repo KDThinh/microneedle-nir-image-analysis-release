@@ -532,7 +532,6 @@ def resolve_default_config_path() -> Optional[str]:
     Search order:
     1. ./config.yaml in the current working directory
     2. Project/repository root (parent of the microneedle_analysis package directory)
-    3. config.yaml bundled beside the installed package
 
     Returns:
     --------
@@ -545,7 +544,6 @@ def resolve_default_config_path() -> Optional[str]:
     candidates = [
         Path.cwd() / "config.yaml",
         package_dir.parent / "config.yaml",
-        package_dir / "config.yaml",
     ]
     seen = set()
     for candidate in candidates:
